@@ -229,8 +229,7 @@ public class InternetRequestWorker {
         }
         String sessionId = UserManager.getInstance().getUserToken();
         URL newUrl = null;
-        return request.newBuilder().addHeader(REQUEST_TOKEN_KEY, sessionId)
-                .addHeader(REQUEST_VERSION_KEY, "0.1").build();
+        return request.newBuilder().addHeader(REQUEST_TOKEN_KEY, sessionId).build();
     }
 
     private Request removeHead(Request request, String head) {

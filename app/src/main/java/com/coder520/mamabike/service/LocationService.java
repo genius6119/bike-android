@@ -141,7 +141,7 @@ public class LocationService extends Service {
             notifyListener(location);
         }
 
-        @Override
+
         public void onConnectHotSpotMessage(String s, int i) {
         }
     }

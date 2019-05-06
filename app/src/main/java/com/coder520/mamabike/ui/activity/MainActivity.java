@@ -112,6 +112,11 @@ public class MainActivity extends BaseActivity<MainPresenter> {
                 clearAllBikeMark();
             }
 
+
+            public void onMapStatusChangeStart(MapStatus mapStatus, int i) {
+
+            }
+
             @Override
             public void onMapStatusChange(MapStatus mapStatus) {
             }

@@ -8,6 +8,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 /**
@@ -15,8 +16,8 @@ import retrofit2.http.Path;
  */
 
 public interface RideRecordInterface {
-    @GET("rideRecord/contrail/{recordNo}")
+    @POST("rideRecord/contrail/{recordNo}")
     Call<ResponseEntityVo<RideRecordRodeVo>> getRideRecord(@Path("recordNo") String recordNumber);
-    @GET("rideRecord/list/{id}")
+    @POST("rideRecord/list/{id}")
     Call<ResponseEntityVo<List<RideRecordItem>>> getRideRecordList(@Path("id") Long id);
 }

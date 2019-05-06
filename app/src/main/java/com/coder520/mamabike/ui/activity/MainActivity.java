@@ -221,10 +221,10 @@ public class MainActivity extends BaseActivity<MainPresenter> {
                     return;
                 }
                 LatLng point = new LatLng(position.getLatitude(), position.getLongitude());
-                int iconResId = R.drawable.ic_location_1;
+                int iconResId = R.drawable.ic_location_2;
                 BikeTo bikeInfo = bikeLocationVo.getBikeInfo();
                 if (bikeInfo != null && bikeInfo.getType() == 1) {
-                    iconResId = R.drawable.ic_location_2;
+                    iconResId = R.drawable.ic_location_1;
                 }
                 BitmapDescriptor bitmapDescriptor = BitmapDescriptorFactory
                         .fromResource(iconResId);

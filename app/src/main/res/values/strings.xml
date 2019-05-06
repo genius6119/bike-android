@@ -25,7 +25,7 @@
     <string name="my_head_img">头像</string>
     <string name="nike_name">昵称</string>
     <string name="phone_number">手机号</string>
-    <string name="mama_bike">z单车</string>
+    <string name="mama_bike">张文车</string>
     <string name="rode_time_format">骑行时间: %d 分钟</string>
     <string name="rode_cost_format">骑行花费: %.2f 元</string>
     <string name="get_time_fail">获取骑行时间失败</string>

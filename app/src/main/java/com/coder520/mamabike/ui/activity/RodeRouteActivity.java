@@ -7,8 +7,13 @@ import android.util.Log;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
+import com.baidu.mapapi.map.MapStatus;
+import com.baidu.mapapi.map.MapStatusUpdate;
+import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MapView;
+import com.baidu.mapapi.map.Overlay;
 import com.baidu.mapapi.map.OverlayOptions;
+import com.baidu.mapapi.map.PolylineOptions;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.search.core.RouteLine;
 import com.baidu.mapapi.search.core.SearchResult;
@@ -58,6 +63,31 @@ public class RodeRouteActivity extends BaseActivity<RodeRoutePresneter> {
     }
 
     public void starRouteSearch(List<Point> points) {
+
+
+        List<LatLng> bpoints = new ArrayList<LatLng>();
+        for(int i = 0;i < points.size();i++){
+            bpoints.add(this.pointToLatlng(points.get(i)));
+        }
+
+        OverlayOptions mOverlayOptions = new PolylineOptions()
+                .width(10)
+                .color(0xAAFF0000)
+                .points(bpoints);
+        //在地图上绘制折线
+        //mPloyline 折线对象
+        Overlay mPolyline = mBaiduMap.addOverlay(mOverlayOptions);
+
+        MapStatusUpdate status2 = MapStatusUpdateFactory.newLatLng(this.pointToLatlng(points.get(1)));
+        MapStatus.Builder builder = new MapStatus.Builder();
+        builder.zoom(18.0f);
+
+        mBaiduMap.setMapStatus(status2);
+        mBaiduMap.setMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
+
+        /**
+         * 下面是用驾车轨迹
+         */
         RoutePlanSearch mSearch = RoutePlanSearch.newInstance();
         mSearch.setOnGetRoutePlanResultListener(getRoutePlanResultListener);
         //设置途径点
@@ -115,13 +145,13 @@ public class RodeRouteActivity extends BaseActivity<RodeRoutePresneter> {
                     }
                     if (result.error == SearchResult.ERRORNO.NO_ERROR) {
                         if (result.getRouteLines().size() >= 1) {
-                            RouteLine route = result.getRouteLines().get(0);
-                            DrivingRouteOverlay overlay = new MyDrivingRouteOverlay(mBaiduMap);
-                            OverlayManager routeOverlay = overlay;
-                            mBaiduMap.setOnMarkerClickListener(overlay);
-                            overlay.setData(result.getRouteLines().get(0));
-                            overlay.addToMap();
-                            overlay.zoomToSpan();
+//                            RouteLine route = result.getRouteLines().get(0);
+//                            DrivingRouteOverlay overlay = new MyDrivingRouteOverlay(mBaiduMap);
+//                            OverlayManager routeOverlay = overlay;
+//                            mBaiduMap.setOnMarkerClickListener(overlay);
+//                            overlay.setData(result.getRouteLines().get(0));
+//                            overlay.addToMap();
+//                            overlay.zoomToSpan();
                         } else {
                             Log.d("route result", "结果数<0");
                             return;

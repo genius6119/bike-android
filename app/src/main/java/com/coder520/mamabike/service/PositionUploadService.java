@@ -43,7 +43,7 @@ public class PositionUploadService extends Service
                     uploadBikeLocation(mLastBDLocation);
                 }
             }
-        }, 5000, 15000);
+        }, 5000, 60000);
     }
 
     private void uploadBikeLocation(BDLocation location) {

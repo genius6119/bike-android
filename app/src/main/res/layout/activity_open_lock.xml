@@ -2,48 +2,55 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#88000000">
+    android:background="@color/__picker_black_40">
 
     <com.dlazaro66.qrcodereaderview.QRCodeReaderView
         android:id="@+id/qrdecoderview"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_centerInParent="true" />
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:layout_alignBottom="@+id/qrdecodeviewfront"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="80dp" />
+
     <View
         android:id="@+id/qrdecodeviewfront"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_centerInParent="true"/>
+        android:layout_width="228dp"
+        android:layout_height="226dp"
+        android:layout_centerInParent="true" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/open_lock_hint"
-        android:textColor="@color/font_color_white"
         android:layout_below="@id/qrdecodeviewfront"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"/>
+        android:layout_marginTop="24dp"
+        android:text="@string/open_lock_hint"
+        android:textColor="@color/font_color_white" />
+
     <Button
         android:id="@+id/btn_input_code"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/input_bike_code"
-        android:textColor="@color/font_color_white"
-        android:background="@null"
-        android:layout_alignLeft="@id/qrdecodeviewfront"
-        android:drawableTop="@drawable/ic_home_bottomsheet_lock"
         android:layout_below="@id/qrdecodeviewfront"
-        android:layout_marginTop="50dp" />
+        android:layout_alignLeft="@id/qrdecodeviewfront"
+        android:layout_marginLeft="-19dp"
+        android:layout_marginTop="62dp"
+        android:background="@null"
+        android:drawableTop="@drawable/ic_home_bottomsheet_lock"
+        android:text="@string/input_bike_code"
+        android:textColor="@color/font_color_white" />
+
     <Button
         android:id="@+id/btn_open_flash_light"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/open_flash_light"
-        android:drawableTop="@drawable/ic_home_bottomsheet_fix"
-        android:layout_alignRight="@id/qrdecodeviewfront"
         android:layout_below="@id/qrdecodeviewfront"
-        android:textColorHighlight="@color/font_color_white"
-        android:layout_marginTop="50dp"
+        android:layout_alignRight="@id/qrdecodeviewfront"
+        android:layout_marginTop="63dp"
         android:background="@null"
-        android:textColor="@color/font_color_white"/>
+        android:drawableTop="@drawable/ic_home_bottomsheet_fix"
+        android:text="@string/open_flash_light"
+        android:textColor="@color/font_color_white"
+        android:textColorHighlight="@color/font_color_white" />
 
 </RelativeLayout>
